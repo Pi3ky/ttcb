@@ -1,0 +1,24 @@
+<div class="modal-header">
+  <h5 class="modal-title header">{{product.title}}</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">
+      <i class="fas fa-times"></i>
+    </span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <div class="text-center">
+    <img [src]="product.image" [alt]="product.title" class="img-responsive">
+  </div>
+  <div class="mt-3">
+    <p>Price: <b class="text-danger">{{product.price | currency}}</b></p>
+    <p>Tag: #{{product.category}}</p>
+    <p>Description: {{product.description}}</p>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-outline-success btn-act">Buy</button>
+  <button class="btn btn-outline-secondary btn-act" (click)="close()">Close</button>
+</div>

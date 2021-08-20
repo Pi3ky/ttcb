@@ -1,0 +1,7 @@
+.link-cart{
+  color: #52ab98;
+  &:hover {
+    transform: scale(1.2);
+    transition: all 0.2s;
+  }
+}

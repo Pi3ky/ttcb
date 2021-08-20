@@ -1,0 +1,38 @@
+<!-- Banners -->
+<div class="position-relative">
+  <carousel [isAnimated]="true" [showIndicators]="false" class="custom-carousel" #banner>
+    <slide *ngFor="let banner of banners;">
+      <img [src]="banner.image" alt="image slide" style="display: block; width: 100%;">
+    </slide>
+  </carousel>
+  <div class="control-carousel-custom">
+    <button class="btn btn-carousel btn-prev shadow" (click)="banner.previousSlide()">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <button class="btn btn-carousel btn-next shadow" (click)="banner.nextSlide()">
+      <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Menus -->
+<ul class="nav justify-content-center nav-menus p-2">
+  <li class="nav-item" (click)="getProductByTag('')">
+    <a class="nav-link" [class.active]="selectedTag === 'All product'" href="javascript:;">All product</a>
+  </li>
+  <li class="nav-item" *ngFor="let category of categories" (click)="getProductByTag(category)">
+    <a class="nav-link" [class.active]="selectedTag === category" href="javascript:;">{{category}}</a>
+  </li>
+</ul>
+
+<div class="row row-eq-height justify-content-center mt-4">
+  <div class="col-12 col-md-6 col-lg-4 col-xl-3 col-item" *ngFor="let product of products" (click)="selectProduct(product)">
+    <div class="wrap-product border">
+      <img [src]="product.image" [alt]="product.title" class="img-product mb-auto">
+      <div class="mt-4">
+        <p class="desc-product">Name: <b>{{product.title}}</b></p>
+        <p class="desc-product">Price: <b>{{product.price | currency}}</b></p>
+      </div>
+    </div>
+  </div>
+</div>
